@@ -29,6 +29,26 @@ header{
   overflow: hidden;
 }
 
+#more-info{
+  color: #FFFFFF;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%,-50%);
+}
+
+#more-info::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%,100%) rotate(45deg) ;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #FFFFFF;
+  border-width: 0 1px 1px 0;
+}
+
 section{
   color: #212121;
   color: rbga(0,0,0,.87);
