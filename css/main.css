@@ -200,3 +200,13 @@ footer{
       margin: 0 10px;
     }
 }
+
+@media screen and (max-width: 550px) {
+  .header-content .title{
+    font-size: 48px;
+  }
+
+  .skill{
+    font-size: 26px;
+  }
+}
