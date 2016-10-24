@@ -62,12 +62,8 @@ a{
 .text-center{ text-align: center; }
 .thin-text{ font-weight: 300; }
 
-.row-bigger{
-    max-width: 1400px;
-}
-.row-big{
-  max-width: 1200px;
-}
+.row-bigger{ max-width: 1400px;}
+.row-big{ max-width: 1200px;}
 
 .row-bigger,
 .row-big{
@@ -87,14 +83,26 @@ a{
   padding: 15px 5px;
 }
 
-.left-nav{
+.float-left{float: left;}
+.float-right{float: right;}
+
+.text h2{
+  padding: 10px;
+  font-style: italic;
+}
+
+.text p{
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.text img{
+  max-width: 400px;
+  width: 100%;
   float: left;
+  margin: 10px;
 }
-
-.right-nav{
-  float: right;
-}
-
 
 .header-content{
   width: 100%;
@@ -124,6 +132,11 @@ a{
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 10px;
+}
+
+.skills a{
+  color: #FFFFFF;
+  color: rgba(255, 255, 255, .87);
 }
 
 .skill{
@@ -196,9 +209,15 @@ a{
 }
 
 footer{
+  height: 75px;
+  width: 100%;
+  background: linear-gradient(45deg, #334D5C, #45B29D);
 }
 
-
+footer img{
+  width: 35px;
+  padding: 20px 5px;
+}
 
 @media screen and (max-width: 850px) {
     .skill {
@@ -218,6 +237,23 @@ footer{
       max-width: none;
       width: auto;
       margin: 0 10px;
+    }
+
+    .title h1 {
+      padding: 20px;
+    }
+
+    .text h2{
+      padding: 10px 20px;
+    }
+
+    .text p{
+      padding: 10px;
+    }
+
+    .text img{
+      max-width: 400px;
+      float: none;
     }
 }
 
