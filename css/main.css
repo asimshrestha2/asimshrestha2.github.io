@@ -47,6 +47,10 @@ header{
   transform: translate(-50%,-50%);
 }
 
+#more-info a{
+  color: #FFFFFF;
+}
+
 #more-info::after{
   content: '';
   position: absolute;
@@ -162,8 +166,8 @@ a{
 .clear{
   clear: both;
 }
-
-.sec-title.fixed{
+/*
+.title.fixed{
   position: fixed;
   top: 0;
   left: 0;
@@ -176,12 +180,12 @@ a{
   z-index: 999;
 }
 
-.sec-title.fixed h1{
+.title.fixed h1{
   padding: 20px;
   font-size: 24px;
-}
+} */
 
-.sec-title h1{
+.title h1{
   padding: 20px 0;
   font-size: 32px;
 }
@@ -238,7 +242,9 @@ a{
   background: #212121;
   color: #FFFFFF;
 }
-
+.footer-space{
+  margin-bottom: 20px;
+}
 footer{
   height: 75px;
   width: 100%;
