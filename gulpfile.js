@@ -49,6 +49,20 @@ gulp.task('watch', ['typescript', 'sass', 'views', 'copy-other', 'browserSync'],
     // Other watchers
 })
 
-gulp.task('default', function() {
-  // place code for your default task here
+gulp.task('public', function() {
+    var exportLoc = 'D:/github/asimshrestha2.github.io-master/asimshrestha2.github.io';
+    gulp.src("src/**/*.ts")
+        .pipe(tsProject())
+        .pipe(gulp.dest(exportLoc))
+
+    gulp.src(["src/**/*", "!src/**/*.ts", "!src/**/*.sass", "!src/**/*.pug"])
+        .pipe(gulp.dest(exportLoc))
+
+    gulp.src('src/**/*.sass')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)) // Using gulp-sass
+        .pipe(gulp.dest(exportLoc))
+    
+    gulp.src('src/**/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest(exportLoc))
 });
