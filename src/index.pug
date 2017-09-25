@@ -20,28 +20,45 @@ html
         script(src="js/main.js")
     body
         header
-            .title Asim Shrestha
+            .title
+                a(href="#home") Asim Shrestha
             nav
                 .right
                     .item Contact
                     .item Work
                     .item About
-        .fancy-name
-            .text
-                .title Asim Shrestha
-                .sub-title Web_Designer
-            .social
-                .item
-                    a(href="https://twitter.com/Asim_Shresth")
-                        img(src="/imgs/social/Twitter.png", alt="Twitter")
-                .item
-                    a(href="https://www.twitch.tv/imanpronation")
-                        img(src="/imgs/social/Twitch.png", alt="Twitch")
-                .item
-                    a(href="https://sketchfab.com/asimshrestha2")
-                        img(src="/imgs/social/sketchfab.png", alt="Sketchfab")
-                .item
-                    a(href="http://asimshrestha2.deviantart.com/")
-                        img(src="/imgs/social/DeviantArt.png", alt="DeviantArt")
-            .background
-        .content
+        
+        .content.current#home
+            .fancy-name
+                .text
+                    .title Asim Shrestha
+                    .sub-title Web_Designer
+                .social
+                    .item
+                        a(href="https://twitter.com/Asim_Shresth")
+                            img(src="/imgs/social/Twitter.png", alt="Twitter")
+                    .item
+                        a(href="https://www.twitch.tv/imanpronation")
+                            img(src="/imgs/social/Twitch.png", alt="Twitch")
+                    .item
+                        a(href="https://sketchfab.com/asimshrestha2")
+                            img(src="/imgs/social/sketchfab.png", alt="Sketchfab")
+                    .item
+                        a(href="http://asimshrestha2.deviantart.com/")
+                            img(src="/imgs/social/DeviantArt.png", alt="DeviantArt")
+                .background
+        .content.topspacing#contact
+            .row-small
+                p.
+                    If you want to contact me:
+                a(href="mailto:asimshrestha2@gmail.com") asimshrestha2@gmail.com
+        .content.topspacing#work
+            .row-small
+                p.
+                    If you want to contact me:
+                a(href="mailto:asimshrestha2@gmail.com") asimshrestha2@gmail.com
+        .content.topspacing#about
+            .row-small
+                p.
+                    If you want to contact me:
+                a(href="mailto:asimshrestha2@gmail.com") asimshrestha2@gmail.com
