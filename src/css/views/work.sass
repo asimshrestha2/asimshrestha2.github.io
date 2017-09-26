@@ -1,0 +1,32 @@
+.flex-content
+    display: flex
+
+.hoverpic
+    position: relative
+    margin: 25px
+    width: 400px
+    height: 250px
+    background: #212121
+    overflow: hidden
+    .bgimg
+        width: 100%
+        height: 100%
+        transition: transform 375ms ease-in
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    .link
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        width: 100%
+        height: 50px
+        line-height: 50px
+        text-align: center
+        transform: translate(0, 50px)
+        transition: transform 375ms ease-in
+    &:hover
+        .link
+            transform: translate(0, 0)

@@ -1,32 +1,36 @@
 document.addEventListener("DOMContentLoaded", function(){
   if(window.location.hash)
     openPage(window.location.hash)();
+  else
+    openPage('#home')();
+
 
   var pageLinks = document.querySelectorAll("a.page");
   // console.log(pageLinks);
 
   function openPage(link: string){
     return function(){
-      // console.log(link)
       var linkHtml = (link.indexOf('#') != -1) ? `${link.replace("#", "")}.html` : null 
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', "/views/" + linkHtml, true)
-      xhr.onprogress = function(e){
-        if(e.lengthComputable){
-          console.log((e.loaded/e.total) * 100)
+      var linkedElement = document.querySelector(".content"+link);
+      var current = document.querySelector(".content.current");
+      if(current){
+        if(current.getAttribute('id') !== link.replace('#', '') && linkedElement.innerHTML === ""){
+          getRequest("/views/" + linkHtml, (res) => {
+            linkedElement.innerHTML = res;
+          })
         }
+        current.classList.remove('current');
+      } else if(linkedElement.innerHTML === "") {
+        getRequest("/views/" + linkHtml, (res) => {
+          linkedElement.innerHTML = res;
+        })
       }
-      xhr.onload = function(){
-        if(xhr.status >= 200 && xhr.status < 400){
-          document.querySelector(link).innerHTML = xhr.responseText;
-          var current = document.querySelector(".content.current");
-          if(current.getAttribute('id') !== link ){
-            document.querySelector(".content.current").classList.remove('current');
-            document.querySelector(link).classList.add('current');
-          }
-        }
+      if(linkedElement.hasAttribute('set-bg-color')) { 
+        document.body.style.background = linkedElement.getAttribute('set-bg-color')
+      } else {
+        document.body.style.background = '#46538b'
       }
-      xhr.send();
+      linkedElement.classList.add('current');
     }
   }
   var element;
@@ -36,3 +40,19 @@ document.addEventListener("DOMContentLoaded", function(){
     // element.onclick = openPage(element.getAttribute('href'));
   }
 })
+
+function getRequest(url: string, callback?: (res: string) => void){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true)
+  xhr.onprogress = function(e){
+    if(e.lengthComputable){
+      console.log((e.loaded/e.total) * 100)
+    }
+  }
+  xhr.onload = function(){
+    if(xhr.status >= 200 && xhr.status < 400){
+      callback(xhr.responseText);
+    }
+  }
+  xhr.send();
+}
