@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var ts = require("gulp-typescript");
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
+var htmlmin = require('gulp-htmlmin');
 var tsProject = ts.createProject("tsconfig.json");
 var browserSync = require('browser-sync').create();
 
@@ -64,5 +65,6 @@ gulp.task('public', function() {
     
     gulp.src('src/**/*.pug')
         .pipe(pug())
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(exportLoc))
 });

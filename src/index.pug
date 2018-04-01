@@ -17,24 +17,38 @@ html
         link(rel="icon", href="https://asimshrestha2.github.io/imgs/Asim_Ymir.png")
         link(href="https://fonts.googleapis.com/css?family=Abel", rel="stylesheet")
         link(rel="stylesheet", href="./css/main.css")
-        script(src="js/main.js")
     body
-        header
-            .title
-                a(href="#home").page Asim Shrestha
-            nav
-                .right
-                    .item Contact
-                        a(href="#contact").page
-                            .fill-btn
-                    .item Work
-                        a(href="#work").page
-                            .fill-btn
-                    .item About
-                        a(href="#about").page
-                            .fill-btn
-        
-        .content#home
-        .content.topspacing#contact
-        .content.topspacing#work(set-bg-color='#538b46')
-        .content.topspacing#about
+        -
+            var boxes = [
+                {title: "About", data_json:`{
+                    "x": 60,
+                    "y": 20
+                }`}, 
+                {title: "Skills", data_json:`{
+                    "x": 80,
+                    "y": 50
+                }`}, 
+                {title: "Contact", content:"Email: asimshrestha2@gmail.com", data_json:`{
+                    "x": 60,
+                    "y": 80
+                }`}, 
+                {title: "Social", content:"Twitter: @asim_shresth", data_json:`{
+                    "x": 32,
+                    "y": 50
+                }`}, 
+                {title: "Projects", data_json:`{
+                    "x": 20,
+                    "y": 80
+                }`}
+            ];
+        .background.full-page-pin
+            .image.full-page-pin
+                img#profile-image(src="imgs/Asim_Ymir.png",alt="", srcset="")
+            svg.full-page-pin.lines
+        .boxes.full-page-pin
+            each box in boxes
+                .box(data-json=box.data_json, id=box.title.toLowerCase())
+                    .title=box.title
+                    if box.content
+                        .content=box.content
+        script(src="js/main.js")

@@ -1,0 +1,36 @@
+{
+  "name": "asimshrestha2.github.io",
+  "version": "1.0.0",
+  "description": "Asim's Profile",
+  "main": "gulp watch",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "nan": "^2.10.0",
+    "node-sass": "^4.8.3",
+    "typescript": "^2.8.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.2.1",
+    "gulp-typescript": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asimshrestha2/asimshrestha2.github.io.git"
+  },
+  "keywords": [
+    "Profile"
+  ],
+  "author": "Asim Shrestha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asimshrestha2/asimshrestha2.github.io/issues"
+  },
+  "homepage": "https://github.com/asimshrestha2/asimshrestha2.github.io#readme"
+}
