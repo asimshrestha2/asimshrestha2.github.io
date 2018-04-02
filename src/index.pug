@@ -51,6 +51,7 @@ html
                     items: [
                         {title: "Twitch Extension", image: "imgs/projects/TwitchExtension.png", description: "Created a Twitch Extension for SMITE Game, which shows the stats of the match for a streamer that is currently in a game of SMITE.", link: "https://www.twitch.tv/ext/1ho24kr7crna6qq1997yk9egdybhde-0.0.7"},
                         {title: "Dialogue-tree", image: "imgs/projects/DialogueTree.PNG", description: "A Web App that can create a Dialogue Tree. It can export and import data, also can create links for each dialogue.", link: "https://asimshrestha2.github.io/dialogue-tree/"},
+                        {title: "Stream Notification", image: "imgs/projects/StreamNotification.png", description: "A Native (electron js) that creates a link for a streamer/broadcaster can use to show notification for their audience.", link: "https://github.com/asimshrestha2/stream-notification-2"},
                         {title: "Find More", description: "* github.com/asimshrestha2", link: "https://github.com/asimshrestha2?tab=repositories"}
                     ]
                 }, 
@@ -82,5 +83,5 @@ html
                                     .description=i.description
                                     if i.link
                                         a(href=i.link)
-                                            .full-page-pin
+                                            .full-btn
         script(src="js/main.js")
