@@ -15,8 +15,10 @@ var setup = false;
 })()
 
 window.addEventListener('resize', () =>{
-    setSVGElement();
-    setBoxesPosition(true);
+    if(window.innerWidth > 600){
+        setSVGElement();
+        setBoxesPosition(true);
+    }
 }, false);
 
 function setCloseBtns() {

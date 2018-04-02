@@ -17,6 +17,7 @@ html
         link(rel="icon", href="https://asimshrestha2.github.io/imgs/Asim_Ymir.png")
         link(href="https://fonts.googleapis.com/css?family=Abel", rel="stylesheet")
         link(rel="stylesheet", href="./css/main.css")
+        link(rel="stylesheet", href="./css/main-small.css", media="screen and (max-width:600px)")
     body
         -
             var sections = [
@@ -37,7 +38,6 @@ html
                         {title: "Go", description: "++__"}
                     ]
                 }, 
-                {title: "Contact", content:"Email: <a href=\"mailto:asimshrestha2@gmail.com\">asimshrestha2@gmail.com</a>", data_json:`{ "x": 60, "y": 80 }`}, 
                 {title: "Social", data_json:`{ "x": 32, "y": 50 }`,
                     items: [
                         {title: "Github", image: "imgs/social/Github.png", description: "asimshrestha2", link: "https://github.com/asimshrestha2"},
@@ -53,7 +53,8 @@ html
                         {title: "Dialogue-tree", image: "imgs/projects/DialogueTree.PNG", description: "A Web App that can create a Dialogue Tree. It can export and import data, also can create links for each dialogue.", link: "https://asimshrestha2.github.io/dialogue-tree/"},
                         {title: "Find More", description: "* github.com/asimshrestha2", link: "https://github.com/asimshrestha2?tab=repositories"}
                     ]
-                }
+                }, 
+                {title: "Contact", content:"Email: <a href=\"mailto:asimshrestha2@gmail.com\">asimshrestha2@gmail.com</a>", data_json:`{ "x": 60, "y": 80 }`}
             ];
         .background.full-page-pin
             .image.full-page-pin

@@ -23,7 +23,6 @@ a
 
 body
     background: $dark-gray
-    overflow: hidden
 
 .full-page-pin
     position: absolute
@@ -34,7 +33,7 @@ body
 
 .background
     z-index: -1
-    svg.lines
+    overflow: hidden
     .image
         text-align: center
         img
@@ -50,6 +49,8 @@ body
         padding: 5px
         background: rgba(0, 0, 0, .75)
         cursor: pointer
+        &:hover
+            color: #a1a1a1
         .title
             font-size: $font-size-large
 
@@ -58,7 +59,8 @@ body
     top: 0
     left: 50%
     transform: translateX(-50%)
-    width: 1200px
+    max-width: 1200px
+    width: 100%
     z-index: -1
     &.front
         z-index: 999
@@ -83,6 +85,10 @@ body
             font-size: $font-size-large
             padding: 20px 30px 10px 30px
         .cards
+            display: -webkit-box
+            display: -moz-box
+            display: -ms-flexbox
+            display: -webkit-flex
             display: flex
             flex-direction: row
             flex-wrap: wrap
