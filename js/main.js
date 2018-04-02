@@ -5,7 +5,10 @@ var setup = false;
 (function () {
     setSVGElement();
     profileImage.onload = () => {
-        setBoxesPosition(false);
+        if (!setup)
+            setBoxesPosition(false);
+        else
+            setBoxesPosition(true);
     };
     setBoxesPosition(false);
     setCloseBtns();
