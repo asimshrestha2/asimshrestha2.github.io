@@ -14,8 +14,10 @@ var setup = false;
     setCloseBtns();
 })();
 window.addEventListener('resize', () => {
-    setSVGElement();
-    setBoxesPosition(true);
+    if (window.innerWidth > 600) {
+        setSVGElement();
+        setBoxesPosition(true);
+    }
 }, false);
 function setCloseBtns() {
     const close_btns = document.getElementsByClassName("close-btn");
