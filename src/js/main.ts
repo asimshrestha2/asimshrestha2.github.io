@@ -1,12 +1,17 @@
 const profileImage = document.getElementById("profile-image");
 const svgEl = document.querySelector("svg.lines") as SVGElement;
 const pages = document.querySelector(".pages") as HTMLElement;
+var setup = false;
 (function(){
     setSVGElement();
     profileImage.onload = () => {
-        setBoxesPosition(false);
-        setCloseBtns();
+        if(!setup)
+            setBoxesPosition(false);
+        else
+            setBoxesPosition(true);
     }
+    setBoxesPosition(false);
+    setCloseBtns();
 })()
 
 window.addEventListener('resize', () =>{
@@ -40,7 +45,7 @@ function setBoxesPosition(update: boolean) {
         const box = boxes[i] as HTMLElement;
         const pos = JSON.parse(box.getAttribute("data-json"));
         setBoxPosition(box, pos, 100);
-        if(update)
+        if(update && setup)
             updateLine(pos, box);
         else{
             createLine(pos, box);
@@ -55,6 +60,7 @@ function setBoxesPosition(update: boolean) {
                     page.classList.add("current");
                 }
             }, false);
+            setup = true;
         }
     }
 }
@@ -92,7 +98,7 @@ function setBoxPosition(box: HTMLElement, pos: any, offset: number) {
         box.style.left = ((leftPosition + box.clientWidth + offset >= window.innerWidth) ? window.innerWidth - box.clientWidth - offset : leftPosition) + offset + "px";
 }
 
-var makeSVG = (tag: string, attrs: {}) => {
+function makeSVG(tag: string, attrs: {}){
     var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
     for (var k in attrs)
         el.setAttribute(k, attrs[k]);

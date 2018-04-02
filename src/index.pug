@@ -24,20 +24,35 @@ html
                     items: [{title: "Name", image: "imgs/Asim_Ymir.png", description: "Asim Shrestha"}]
                 }, 
                 {title: "Skills", data_json:`{ "x": 80, "y": 50 }`,
-                    items: [{title: "Name", image: "imgs/Asim_Ymir.png", description: "Asim Shrestha"}]
+                    items: [
+                        {title: "C#", description: "++__"},
+                        {title: "C/C++", description: "++__"},
+                        {title: "Java", description: "+++_"},
+                        {title: "Javascript", description: "+++_"},
+                        {title: "HTML/CSS", description: "++++"},
+                        {title: "PHP", description: "+++_"},
+                        {title: "Node.js", description: "+++_"},
+                        {title: "Python", description: "+++_"},
+                        {title: "SQL", description: "+++_"},
+                        {title: "Go", description: "++__"}
+                    ]
                 }, 
                 {title: "Contact", content:"Email: <a href=\"mailto:asimshrestha2@gmail.com\">asimshrestha2@gmail.com</a>", data_json:`{ "x": 60, "y": 80 }`}, 
                 {title: "Social", data_json:`{ "x": 32, "y": 50 }`,
                     items: [
-                        {title: "Github", image: "/imgs/social/Github.png", description: "asimshrestha2", link: "https://github.com/asimshrestha2"},
-                        {title: "CodePen", image: "/imgs/social/CodePen.png", description: "imanpro", link: "https://codepen.io/imanpro/"},
-                        {title: "Twitter", image: "/imgs/social/Twitter.png", description: "@Asim_Shresth", link: "https://twitter.com/Asim_Shresth"},
-                        {title: "Twitch", image: "/imgs/social/Twitch.png", description: "iManProNation", link: "https://www.twitch.tv/imanpronation"},
-                        {title: "Sketchfab", image: "/imgs/social/Sketchfab.png", description: "asimshrestha2", link: "https://sketchfab.com/asimshrestha2"}
+                        {title: "Github", image: "imgs/social/Github.png", description: "asimshrestha2", link: "https://github.com/asimshrestha2"},
+                        {title: "CodePen", image: "imgs/social/CodePen.png", description: "imanpro", link: "https://codepen.io/imanpro/"},
+                        {title: "Twitter", image: "imgs/social/Twitter.png", description: "@Asim_Shresth", link: "https://twitter.com/Asim_Shresth"},
+                        {title: "Twitch", image: "imgs/social/Twitch.png", description: "iManProNation", link: "https://www.twitch.tv/imanpronation"},
+                        {title: "Sketchfab", image: "imgs/social/Sketchfab.png", description: "asimshrestha2", link: "https://sketchfab.com/asimshrestha2"}
                     ]
                 }, 
                 {title: "Projects", data_json:`{ "x": 20, "y": 80 }`,
-                    items: [{title: "Twitch Extension", image: "imgs/projects/TwitchExtension.png", description: "Created a Twitch Extension for SMTIE Game, which shows the stats of the match for a streamer that is currently in a game of SMITE", link: "https://www.twitch.tv/ext/1ho24kr7crna6qq1997yk9egdybhde-0.0.7"}]
+                    items: [
+                        {title: "Twitch Extension", image: "imgs/projects/TwitchExtension.png", description: "Created a Twitch Extension for SMITE Game, which shows the stats of the match for a streamer that is currently in a game of SMITE.", link: "https://www.twitch.tv/ext/1ho24kr7crna6qq1997yk9egdybhde-0.0.7"},
+                        {title: "Dialogue-tree", image: "imgs/projects/DialogueTree.png", description: "A Web App that can create a Dialogue Tree. It can export and import data, also can create links for each dialogue.", link: "https://asimshrestha2.github.io/dialogue-tree/"},
+                        {title: "Find More", description: "* github.com/asimshrestha2", link: "https://github.com/asimshrestha2?tab=repositories"}
+                    ]
                 }
             ];
         .background.full-page-pin
@@ -59,8 +74,9 @@ html
                         .cards
                             each i in item.items
                                 .card
-                                    .image
-                                        img(src=i.image, alt=i.title)
+                                    if i.image
+                                        .image
+                                            img(src=i.image, alt=i.title)
                                     .title=i.title
                                     .description=i.description
                                     if i.link
