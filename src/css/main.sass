@@ -1,3 +1,4 @@
+$font-size-small: 16px
 $font-size: 18px
 $font-size-large: 24px
 $font-family: 'Abel', sans-serif
@@ -5,6 +6,7 @@ $font-family: 'Abel', sans-serif
 //Colors
 $white: #ffffff
 $dark-gray: #212121
+$light-blue: #90CAF9
 
 *
     font-family: $font-family
@@ -12,6 +14,12 @@ $dark-gray: #212121
 div, body
     margin: 0
     padding: 0
+
+a
+    text-decoration-style: none
+    color: $white
+    &:hover
+        color: $light-blue
 
 body
     background: $dark-gray
@@ -41,9 +49,68 @@ body
         border: solid 1px $white
         padding: 5px
         background: rgba(0, 0, 0, .75)
+        cursor: pointer
         .title
             font-size: $font-size-large
-        .content
+
+.pages
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 1200px
+    z-index: -1
+    &.front
+        z-index: 999
+    .page
+        background: $white
+        width: 100%
+        border-radius: 0 0 3px 3px
+        display: none
+        &.current
+            display: block
+        .close-btn
+            position: absolute
+            top: 0
+            right: 0
+            background: url('/imgs/ic_close.svg') no-repeat
+            background-size: contain
+            margin: 20px 30px
+            width: 32px
+            height: 32px
+            cursor: pointer
+        > .title
+            font-size: $font-size-large
+            padding: 20px 30px 10px 30px
+        .cards
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+
+.card
+    position: relative
+    margin: 25px
+    min-width: 350px
+    width: 350px
+    overflow: hidden
+    background: $white
+    border-radius: 3px
+    box-shadow: 3px 2px 5px #a1a1a1
+    box-shadow: 3px 2px 5px rgba(0, 0, 0, .35)
+    .image
+        width: 100%
+        height: 200px
+        background: #e1e1e1
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    .title
+        font-size: $font-size
+        padding: 15px 10px 5px 10px
+    .description
+        font-size: $font-size-small
+        padding: 5px 10px 15px 10px
 
 [hidden]
     display: none    

@@ -1,9 +1,11 @@
 const profileImage = document.getElementById("profile-image");
 const svgEl = document.querySelector("svg.lines") as SVGElement;
+const pages = document.querySelector(".pages") as HTMLElement;
 (function(){
     setSVGElement();
     profileImage.onload = () => {
         setBoxesPosition(false);
+        setCloseBtns();
     }
 })()
 
@@ -11,6 +13,20 @@ window.addEventListener('resize', () =>{
     setSVGElement();
     setBoxesPosition(true);
 }, false);
+
+function setCloseBtns() {
+    const close_btns = document.getElementsByClassName("close-btn");
+    for (let i = 0; i < close_btns.length; i++) {
+        const element = close_btns[i];
+        element.addEventListener("click", () => {
+            const currentPage = document.querySelector(".page.current") as HTMLElement;
+            if (currentPage) {
+                pages.classList.remove("front");
+                currentPage.classList.remove("current");
+            }
+        }, false);
+    }
+}
 
 function setSVGElement() {
     const svgArg = { viewbox: "0 0 " + window.innerWidth + " " + window.innerHeight, width: window.innerWidth, height: window.innerHeight };
@@ -26,16 +42,29 @@ function setBoxesPosition(update: boolean) {
         setBoxPosition(box, pos, 100);
         if(update)
             updateLine(pos, box);
-        else
+        else{
             createLine(pos, box);
+            box.addEventListener("click", () => {
+                pages.classList.add("front");
+                const page = document.getElementById(box.id + "-page");
+                const currentPage = document.querySelector(".page.current") as HTMLElement;
+                if(currentPage && page != currentPage){
+                    currentPage.classList.remove("current");
+                    page.classList.add("current");
+                } else if(page) {
+                    page.classList.add("current");
+                }
+            }, false);
+        }
     }
 }
 
 function createLine(pos: any, box: HTMLElement) {
     const leftPosition = (profileImage.clientWidth * (pos.x / 100)) + profileImage.offsetLeft;
     let svgLine = makeSVG("line", {
-    id: box.id + "-line", class: "line", x1: leftPosition, y1: profileImage.clientHeight * (pos.y / 100),
-        x2: ((pos.x <= 50) ? box.offsetLeft + box.clientWidth : box.offsetLeft), y2: box.offsetTop + box.clientHeight / 2, "stroke-width": "2", stroke: "#FFFFFF"
+        id: box.id + "-line", class: "line", x1: leftPosition, y1: profileImage.clientHeight * (pos.y / 100),
+        x2: ((pos.x <= 50) ? box.offsetLeft + box.clientWidth : box.offsetLeft), y2: box.offsetTop + box.clientHeight / 2,
+        "stroke-width": "1", stroke: "#FFFFFF"
     });
     svgEl.appendChild(svgLine);
 }
@@ -43,8 +72,8 @@ function createLine(pos: any, box: HTMLElement) {
 function updateLine(pos: any, box: HTMLElement) {
     const leftPosition = (profileImage.clientWidth * (pos.x / 100)) + profileImage.offsetLeft;
     const arg = {
-        id: box.id + "-line", class: "line", x1: leftPosition, y1: profileImage.clientHeight * (pos.y / 100),
-            x2: ((pos.x <= 50) ? box.offsetLeft + box.clientWidth : box.offsetLeft), y2: box.offsetTop + box.clientHeight / 2, "stroke-width": "2", stroke: "#FFFFFF"
+            x1: leftPosition, y1: profileImage.clientHeight * (pos.y / 100),
+            x2: ((pos.x <= 50) ? box.offsetLeft + box.clientWidth : box.offsetLeft), y2: box.offsetTop + box.clientHeight / 2
         }
 
     let svgLine = document.getElementById(box.id + "-line");
