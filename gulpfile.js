@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var ts = require("gulp-typescript");
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
-var htmlmin = require('gulp-htmlmin');
+// var htmlmin = require('gulp-htmlmin');
 var tsProject = ts.createProject("tsconfig.json");
 var browserSync = require('browser-sync').create();
 
@@ -14,7 +14,9 @@ gulp.task('browserSync', function() {
 
 gulp.task('views', function buildHTML() {
     return gulp.src('src/**/*.pug')
-        .pipe(pug())
+        .pipe(pug({
+            pretty: true
+        }))
         .pipe(gulp.dest('public'))
         .pipe(browserSync.reload({
             stream: true
@@ -64,7 +66,8 @@ gulp.task('public', function() {
         .pipe(gulp.dest(exportLoc))
     
     gulp.src('src/**/*.pug')
-        .pipe(pug())
-        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(pug({
+            pretty: true
+        }))
         .pipe(gulp.dest(exportLoc))
 });
