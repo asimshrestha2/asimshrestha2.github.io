@@ -5,10 +5,12 @@ var setup = false;
 (function () {
     setSVGElement();
     profileImage.onload = () => {
-        if (!setup)
+        if (!setup) {
             setBoxesPosition(false);
-        else
+        }
+        else {
             setBoxesPosition(true);
+        }
     };
     setBoxesPosition(false);
     setCloseBtns();
@@ -43,8 +45,9 @@ function setBoxesPosition(update) {
         const box = boxes[i];
         const pos = JSON.parse(box.getAttribute("data-json"));
         setBoxPosition(box, pos, 100);
-        if (update && setup)
+        if (update && setup) {
             updateLine(pos, box);
+        }
         else {
             createLine(pos, box);
             box.addEventListener("click", () => {
@@ -85,14 +88,17 @@ function updateLine(pos, box) {
 function setBoxPosition(box, pos, offset) {
     box.style.top = (profileImage.clientHeight * (pos.y / 100)) - offset + "px";
     const leftPosition = (profileImage.clientWidth * (pos.x / 100)) + profileImage.offsetLeft;
-    if (pos.x <= 50)
+    if (pos.x <= 50) {
         box.style.left = ((leftPosition - box.clientWidth - offset <= 0) ? 0 : leftPosition - box.clientWidth - offset) + "px";
-    else
+    }
+    else {
         box.style.left = ((leftPosition + box.clientWidth + offset >= window.innerWidth) ? window.innerWidth - box.clientWidth - offset : leftPosition) + offset + "px";
+    }
 }
 function makeSVG(tag, attrs) {
     var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
-    for (var k in attrs)
+    for (var k in attrs) {
         el.setAttribute(k, attrs[k]);
+    }
     return el;
 }
